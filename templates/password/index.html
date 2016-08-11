@@ -1,0 +1,15 @@
+<!doctype html>
+<title>Hello from Flask</title>
+{% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% else %}
+  <h1>스트롱 패스워드!</h1>
+{% endif %}
+"안녕하세요. 복붙왕입니다. 내 패스워드는 몇 점?"
+
+<form action="{{ url_for('password.index') }}" method="POST">
+  <input name="text">
+  <button type="submit">등록</button>
+</form>
+
+{{ text }}
