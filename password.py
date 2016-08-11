@@ -1,6 +1,7 @@
 from flask import render_template
 from flask import request
 from flask import Blueprint
+from pw_analysis import pw_analysis
 
 password = Blueprint('password', __name__)
 
@@ -20,13 +21,21 @@ def index():
 		row[5] = str(NumberOfLowers(text))
 		row[6] = str(NumberOfUppers(text))
 		row[7] = str(NumberOfSymbols(text))
-		row[8] = str(IsCharactersOnly(text))
-		row[9] = str(IsDigitsOnly(text))
+		row[8] = bool(IsCharactersOnly(text))
+		row[9] = bool(IsDigitsOnly(text))
 		row[10] = str(IsRepeatCharacters(text))
 		row[11] = str(IsSequentialCharacters(text))
 		row[12] = str(RatioOfVowels(text))
-		row = ','.join(row)
-		return render_template('password/index.html', text=row)
+		# row = ','.join(row)
+
+		X = row[2:]
+		result = pw_analysis(X)
+		if result[0] == 0:
+			answer = "Weak! 5분만에 깨지는 패스워드입니다!"
+		else:
+			answer = "Strong! 단단한 패스워드! 발 뻗고 자도 되겠네요"
+
+		return render_template('password/index.html', text=text, answer=answer)
 
 def NumberOfDigits(input):
 	n = 0

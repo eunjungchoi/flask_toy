@@ -5,11 +5,14 @@
 {% else %}
   <h1>스트롱 패스워드!</h1>
 {% endif %}
-"안녕하세요. 복붙왕입니다. 내 패스워드는 몇 점?"
+내 패스워드, 얼마나 안전한지 체크해봅시다.
 
 <form action="{{ url_for('password.index') }}" method="POST">
   <input name="text">
-  <button type="submit">등록</button>
+  <button type="submit">검사하기</button>
 </form>
 
-{{ text }}
+{% if answer %}
+<h3>{{ text }}</h3>
+{{ answer }}
+{% endif %}
