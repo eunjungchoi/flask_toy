@@ -5,7 +5,10 @@
 {% else %}
   <h1>스트롱 패스워드!</h1>
 {% endif %}
-내 패스워드, 얼마나 안전한지 체크해봅시다.
+내 패스워드, 얼마나 안전한지 체크해봅시다.<br>
+(입력 값은 저장되지 않습니다) <br>
+<br>
+
 
 <form action="{{ url_for('password.index') }}" method="POST">
   <input name="text">
