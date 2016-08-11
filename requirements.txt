@@ -8,5 +8,12 @@ JPype1-py3==0.5.5.2
 konlpy==0.4.4
 MarkupSafe==0.23
 networkx==1.11
+numpy==1.11.1
+pandas==0.18.1
+python-dateutil==2.5.3
+pytz==2016.6.1
+scikit-learn==0.17.1
+scipy==0.18.0
+six==1.10.0
 textrankr==0.3
 Werkzeug==0.11.10
