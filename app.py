@@ -11,17 +11,17 @@ app.register_blueprint(password)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    if request.method == 'GET':
-        return render_template('index.html')
-    else:
-        if bool(os.environ.get('FLASK_DEBUG')):
-            text = "로컬에서는 안됩니다. 셀프-죄송해요."
-        else:
-            text = "로컬에서는 안됩니다. 셀프-죄송해요."
-            # text = TextRank(request.form['text']).summarize()
+	if request.method == 'GET':
+		return render_template('index.html')
+	else:
+		if bool(os.environ.get('FLASK_DEBUG')):
+			text = "로컬에서는 안됩니다. 셀프-죄송해요."
+		else:
+			text = "로컬에서는 안됩니다. 셀프-죄송해요."
+			# text = TextRank(request.form['text']).summarize()
 
-        return render_template('index.html', text=text)
+		return render_template('index.html', text=text)
 
 
 if __name__ == "__main__":
-    app.run()
+	app.run()
