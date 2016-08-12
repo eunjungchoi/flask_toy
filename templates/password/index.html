@@ -1,25 +1,38 @@
-<!doctype html>
-<head>
-<title>Flasktoy_password</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-</head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Flasktoy_password</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+          font-family: sans-serif; background: #eee;
+        }
+        a, h1, h2 {
+          color: #377ba8;
+        }
+        h1, h2 {
+          font-family: 'Georgia', serif; margin: 0;
+        }
+        h1 {
+          border-bottom: 2px solid #eee;
+        }
+    </style>
+  </head>
 
-<body>
+  <body>
+    <h1>스트롱 패스워드!</h1>
+      <p>내 패스워드, 얼마나 안전한지 체크해봅시다.</p>
+      <p>(입력 값은 저장되지 않습니다)</p>
+    <form action="{{ url_for('password.index') }}" method="POST">
+      <input name="text">
+      <button type="submit">검사하기</button>
+    </form>
 
-<h1>스트롱 패스워드!</h1>
-내 패스워드, 얼마나 안전한지 체크해봅시다.<br>
-(입력 값은 저장되지 않습니다) <br>
-<br>
+    {% if answer %}
+      <h3>{{ text }}</h3>
+    {{ answer }}
+    {% endif %}
 
-
-<form action="{{ url_for('password.index') }}" method="POST">
-  <input name="text">
-  <button type="submit">검사하기</button>
-</form>
-
-{% if answer %}
-<h3>{{ text }}</h3>
-{{ answer }}
-{% endif %}
-
-</body>
+    <script src="{{ url_for('static', filename='styles/dist/js/bootstrap.js') }}"></script>
+  </body>
+</html>
