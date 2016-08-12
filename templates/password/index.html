@@ -34,13 +34,20 @@
 
     <div class="container" align="center">
       <h1>스트롱 패스워드!</h1>
-      <hr>
-        <p>내 패스워드, 얼마나 안전한지 체크해봅시다.</p>
-        <p>(입력 값은 저장되지 않습니다)</p>
-      <form action="{{ url_for('password.index') }}" method="POST">
-        <input name="text">
-        <button type="submit">검사하기</button>
-      </form>
+      <p>내 패스워드, 얼마나 안전한지 체크해봅시다.</p>
+      <p>(입력 값은 저장되지 않습니다)</p><br>
+      <div class="col-lg-offset-4 col-lg-4">
+        <form action="{{ url_for('password.index') }}" method="POST">
+          <div class="form-group">
+  					<div class="input-group">
+  						<input type="text" class="form-control" name="text" placeholder="abcd123">
+  						<span class="input-group-btn">
+  							<button type="submit" class="btn btn-default">검사하기</button>
+  						</span>
+  					</div>
+  				</div>
+        </form>
+      </div>
     </div>
 
     <div class="container" align="center">
