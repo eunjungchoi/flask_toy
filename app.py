@@ -3,7 +3,7 @@ from flask import render_template
 from flask import request
 # from textrankr import TextRank
 from password import password
-
+import os
 
 app = Flask(__name__)
 app.register_blueprint(password)
