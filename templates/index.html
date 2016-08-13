@@ -1,16 +1,39 @@
-<!doctype html>
-<title>Hello from Flask</title>
-{% if name %}
-  <h1>Hello {{ name }}!</h1>
-{% else %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flasktoy_Headline</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap-3.3.7/css/bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap-3.3.7/css/bootstrap-theme.min.css') }}">
+    <style>
+        * {
+          margin: 0;
+      	}
+      	html, body {
+      	  height: 100%;
+      	}
+      	.wrapper {
+      	    min-height: 100%;
+      	    height: auto !important;
+      	    height: 100%;
+      	    margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+      	}
+      	.footer, .push {
+      	    height: 142px; /* .push must be the same height as .footer */
+      	}
+    </style>
+  </head>
+  <body>
   <h1>Hello, World!</h1>
-{% endif %}
-"안녕하세요. 플라스크 왕입니다"
-
-
-<form action="{{ url_for('index') }}" method="POST">
-  <textarea name="text" cols="80" rows="20"></textarea>
-  <button type="submit">등록</button>
-</form>
-
-{{ text }}
+  <form action="{{ url_for('index') }}" method="POST">
+    <textarea name="text" cols="80" rows="20"></textarea>
+    <button type="submit">등록</button>
+  </form>
+  {{ text }}
+  <script src="{{ url_for('static', filename='jquery-3.1.0/jquery-3.1.0.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bootstrap-3.3.7/js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lodash-4.13.1/lodash.min.js') }}"></script>
+  </body>
+</html>
