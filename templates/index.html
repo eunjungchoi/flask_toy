@@ -35,11 +35,13 @@
       </div>
     </nav>
 
-    <h1>Hello, World!</h1>
-    <form action="{{ url_for('index') }}" method="POST">
-      <textarea name="text" cols="80" rows="20"></textarea>
-      <button type="submit">등록</button>
-    </form>
+    <div id="content" class="wrapper">
+      <div class="container" align="center">
+        <h1>한 줄로 요약해봅시다!</h1>
+        <form action="{{ url_for('index') }}" method="POST">
+          <textarea name="text" cols="80" rows="20"></textarea>
+          <p><button type="submit" class="btn btn-primary">한 줄 요약</button></p>
+        </form>
     {{ text }}
 
     <div id="footer" style="margin-top:60px" class="footer">
