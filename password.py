@@ -26,7 +26,6 @@ def index():
 		row[10] = str(IsRepeatCharacters(text))
 		row[11] = str(IsSequentialCharacters(text))
 		row[12] = str(RatioOfVowels(text))
-		# row = ','.join(row)
 
 		X = row[2:]
 		result = pw_analysis(X)
@@ -34,58 +33,59 @@ def index():
 			answer = "Weak! 5분만에 깨지는 패스워드입니다!"
 		else:
 			answer = "Strong! 단단한 패스워드! 발 뻗고 자도 되겠네요"
-
 		return render_template('password/index.html', text=text, answer=answer)
+
 
 def NumberOfDigits(input):
 	n = 0
 	for c in input:
 		if c.isdigit():
 			n += 1
-
 	return n
+
 
 def NumberOfAlphas(input):
 	n = 0
 	for c in input:
 		if c.isalpha():
 			n += 1
-
 	return n
+
 
 def NumberOfLowers(input):
 	n = 0
 	for c in input:
 		if c.islower():
 			n += 1
-
 	return n
+
 
 def NumberOfUppers(input):
 	n = 0
 	for c in input:
 		if c.isupper():
 			n += 1
-
 	return n
+
 
 def NumberOfSymbols(input):
 	def issymbol(c):
 		from itertools import chain
 		return ord(c) in chain(range(33, 48), range(58, 65), range(91, 97), range(123, 127))
-
 	n = 0
 	for c in input:
 		if issymbol(c):
 			n += 1
-
 	return n
+
 
 def IsCharactersOnly(input):
 	return len(input) == NumberOfAlphas(input)
 
+
 def IsDigitsOnly(input):
 	return len(input) == NumberOfDigits(input)
+
 
 def IsRepeatCharacters(input):
 	from itertools import groupby
@@ -101,7 +101,6 @@ def IsSequentialCharacters(input):
 		i = 0
 		if len(input) == 0:
 			return 0
-
 		repeat_str = input[0]
 		sq_list = []
 		while i < len(input) - 1:
@@ -111,19 +110,15 @@ def IsSequentialCharacters(input):
 				if len(repeat_str) >= 3:
 					sq_list.append(repeat_str)
 				repeat_str = input[i+1]
-			#print(i, input[i], input[i+1], repeat_str)
 			i += 1
 		if len(repeat_str) >= 3:
 			sq_list.append(repeat_str)
-		#print (repeat_str)
-		#print (sq_list)
 		return len(sq_list)
 
 	def backward(input):
 		i = 0
 		if len(input) == 0:
 			return 0
-
 		repeat_str = input[0]
 		sq_list = []
 		while i < len(input) - 1:
@@ -133,24 +128,20 @@ def IsSequentialCharacters(input):
 				if len(repeat_str) >= 3:
 					sq_list.append(repeat_str)
 				repeat_str = input[i+1]
-			#print(i, input[i], input[i+1], repeat_str)
 			i += 1
 		if len(repeat_str) >= 3:
 			sq_list.append(repeat_str)
-		#print (repeat_str)
-		#print (sq_list)
 		return len(sq_list)
 	return forward(input)+ backward(input)
+
 
 def RatioOfVowels(input):
 	def isVowel(c):
 		return ord(str.upper(c)) in (65, 69, 73, 79, 85, 89)
-
 	n = 0
 	for c in input:
 		if isVowel(c):
 			n += 1
-
 	if NumberOfAlphas(input) != 0:
 		return n / NumberOfAlphas(input)
 	else :
