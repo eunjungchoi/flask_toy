@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-# from textrankr import TextRank
+from textrankr import TextRank
 from password import password
 import os
 
@@ -17,8 +17,8 @@ def index():
 		if bool(os.environ.get('FLASK_DEBUG')):
 			text = "로컬에서는 안됩니다. 셀프-죄송해요."
 		else:
-			text = "로컬에서는 안됩니다. 셀프-죄송해요."
-			# text = TextRank(request.form['text']).summarize()
+			# text = "로컬에서는 안됩니다. 셀프-죄송해요."
+			text = TextRank(request.form['text']).summarize()
 
 		return render_template('index.html', text=text)
 
