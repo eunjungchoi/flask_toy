@@ -30,7 +30,7 @@ def index():
 		X = row[2:]
 		result = pw_analysis(X)
 		if result[0] == 0:
-			answer = "Weak! 5분만에 깨지는 패스워드입니다!"
+			answer = "Weak! 5분 만에 깨지는 패스워드입니다!"
 		else:
 			answer = "Strong! 단단한 패스워드! 발 뻗고 자도 되겠네요"
 		return render_template('password/index.html', text=text, answer=answer)
