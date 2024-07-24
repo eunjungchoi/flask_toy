@@ -1,7 +1,7 @@
 click==6.6
 decorator==4.0.10
 Flask>=0.11.1
-gunicorn==19.6.0
+gunicorn>=22.0.0
 itsdangerous==0.24
 Jinja2>=2.10.1
 JPype1-py3==0.5.5.2
@@ -12,7 +12,7 @@ numpy>=1.11.1
 pandas>=0.18.1
 python-dateutil>=2.5.3
 pytz==2016.6.1
-scikit-learn==0.17.1
+scikit-learn>=1.5.1
 scipy==0.18.0
 six==1.10.0
 textrankr==0.3
